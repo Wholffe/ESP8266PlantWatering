@@ -1,25 +1,21 @@
-int relayPin = D4;
-int soilMoistSensorPin = A0;
+const int relayPin = D4;
+const int soilMoistSensorPin = A0;
+const int maxSoilMoistValue = 400; //moist
+const int minSoilMoistValue = 870; //dry
+const int plantmoistureThresholdPercentage = 40;
+
 int currentSoilMoistValue;
 int currentSoilMoistPercent;
 
-int maxSoilMoistValue = 400; //moist
-int minSoilMoistValue = 870; //dry
-int plantmoistureThresholdPercentage = 40;
-
 void setup() {
   Serial.begin(115200);
-  //pinMode(LED_BUILTIN, OUTPUT);
   pinMode(relayPin, OUTPUT);
 }
 
 void loop() {
   currentSoilMoistValue = analogRead(soilMoistSensorPin);
   currentSoilMoistPercent = map(currentSoilMoistValue,minSoilMoistValue,maxSoilMoistValue,0,100);
-  Serial.print("Current soil moist value: ");
-  Serial.println(String(currentSoilMoistValue));
-  Serial.print("Current soil most value in percent: ");
-  Serial.println(String(currentSoilMoistPercent));
+  Serial.println("SoilMoistValue: " + String(currentSoilMoistValue) + "(" + String(currentSoilMoistPercent) + "%)");
   if (currentSoilMoistPercent < plantmoistureThresholdPercentage){
     digitalWrite(relayPin, HIGH);
   } else {
