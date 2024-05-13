@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.container {
+    width: 80%;
+    height: 750px;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.chart {
+    border-radius: 8px;
+    margin-bottom: -5px;
+}
+
+.x-axis, .y-axis {
+    position: absolute;
+    color: #555;
+    font-weight: bold;
+}
+
+.x-axis {
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.y-axis {
+    top: 50%;
+    left: -60px;
+    transform: translateY(-50%) rotate(-90deg);
+}
