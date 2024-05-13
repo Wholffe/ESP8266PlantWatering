@@ -1,9 +1,14 @@
 // dummy data
-const data = [40, 38, 36, 30, 32, 34, 40, 50, 65, 70];
+const data = [40, 38, 36, 30, 32, 34, 40, 50, 65, 100];
 
-// create the graph
 function createGraph(data) {
     const ctx = document.getElementById('dataChart').getContext('2d');
+    const container = document.getElementById('graphContainer');
+    const containerWidth = container.offsetWidth;
+    const containerHeight = container.offsetHeight;
+
+    const labelMargin = 20;
+
     const dataChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -22,6 +27,15 @@ function createGraph(data) {
             }]
         },
         options: {
+            maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    left: labelMargin,
+                    right: labelMargin,
+                    top: labelMargin,
+                    bottom: labelMargin
+                }
+            },
             scales: {
                 y: {
                     beginAtZero: true,
@@ -43,6 +57,9 @@ function createGraph(data) {
             }
         }
     });
+
+    dataChart.canvas.width = containerWidth;
+    dataChart.canvas.height = containerHeight;
 }
 
 window.onload = function() {
