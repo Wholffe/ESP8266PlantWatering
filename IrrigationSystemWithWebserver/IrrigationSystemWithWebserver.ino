@@ -101,7 +101,7 @@ void setup() {
 void loop() {
   server.handleClient();
   webSocket.loop();
-  handleRelais();
+  handleRelay();
 }
 
 void getData(){
@@ -114,7 +114,7 @@ void getData(){
   webSocket.broadcastTXT(json.c_str(),json.length());
 }
 
-void handleRelais(){
+void handleRelay(){
   if (currentSoilMoistPercent < plantmoistureThresholdPercentage){
     digitalWrite(relayPin, HIGH);
   } else {
