@@ -1,14 +1,11 @@
 <html>
-<!-- Adding a data chart using Chart.js -->
 <head>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js'></script>
 </head>
 <body onload="javascript:init()">
-<!-- Adding a slider for controlling data rate -->
 <div>
   <canvas id="line-chart" width="800" height="450"></canvas>
 </div>
-<!-- Adding a websocket to the client (webpage) -->
 <script>
   var webSocket, dataPlot;
   var maxDataPoints = 20;
